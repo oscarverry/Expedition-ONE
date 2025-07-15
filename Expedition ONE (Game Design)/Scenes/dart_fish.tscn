@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=3 uid="uid://bfsimblfhop48"]
+
+[ext_resource type="Texture2D" uid="uid://il3lqmoxfnor" path="res://Assets/fish-dart.png" id="1_mmww8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qubn4"]
+atlas = ExtResource("1_mmww8")
+region = Rect2(0, 0, 39, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3xohk"]
+atlas = ExtResource("1_mmww8")
+region = Rect2(39, 0, 39, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c2rrx"]
+atlas = ExtResource("1_mmww8")
+region = Rect2(78, 0, 39, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pf2p6"]
+atlas = ExtResource("1_mmww8")
+region = Rect2(117, 0, 39, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2d22j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qubn4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3xohk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c2rrx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pf2p6")
+}],
+"loop": true,
+"name": &"swim",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3riil"]
+radius = 7.99996
+height = 41.9998
+
+[node name="dart_fish" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_2d22j")
+animation = &"swim"
+autoplay = "swim"
+frame = 1
+frame_progress = 0.471597
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+rotation = 1.56329
+shape = SubResource("CapsuleShape2D_3riil")
