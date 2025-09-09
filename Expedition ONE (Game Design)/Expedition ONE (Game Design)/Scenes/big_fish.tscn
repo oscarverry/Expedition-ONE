@@ -1,0 +1,80 @@
+[gd_scene load_steps=11 format=3 uid="uid://c0gudvssymn04"]
+
+[ext_resource type="Texture2D" uid="uid://h02o054s6fxk" path="res://Assets/fish-big_damaged.png" id="1_2ohmk"]
+[ext_resource type="Texture2D" uid="uid://cvauhbxmw703l" path="res://Assets/fish-big.png" id="1_6qom3"]
+[ext_resource type="Script" path="res://Scripts/big_fish.gd" id="1_sou2k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rjgyf"]
+atlas = ExtResource("1_2ohmk")
+region = Rect2(0, 0, 53, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lkcdn"]
+atlas = ExtResource("1_6qom3")
+region = Rect2(0, 0, 54, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_huf2g"]
+atlas = ExtResource("1_6qom3")
+region = Rect2(54, 0, 54, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ygql"]
+atlas = ExtResource("1_6qom3")
+region = Rect2(108, 0, 54, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_02s5m"]
+atlas = ExtResource("1_6qom3")
+region = Rect2(162, 0, 54, 49)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x45cv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rjgyf")
+}],
+"loop": true,
+"name": &"damaged",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lkcdn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_huf2g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ygql")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_02s5m")
+}],
+"loop": true,
+"name": &"swim",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g1bqa"]
+radius = 27.6569
+height = 66.8733
+
+[node name="big_fish" type="CharacterBody2D"]
+scale = Vector2(2, 2)
+collision_layer = 4
+collision_mask = 5
+script = ExtResource("1_sou2k")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_x45cv")
+animation = &"damaged"
+autoplay = "swim"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(11, 7)
+rotation = 1.8006
+shape = SubResource("CapsuleShape2D_g1bqa")
+
+[node name="hit_animation_timer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
+[connection signal="timeout" from="hit_animation_timer" to="." method="_on_hit_animation_timer_timeout"]

@@ -1,0 +1,92 @@
+[gd_scene load_steps=6 format=3 uid="uid://2uckat37wj30"]
+
+[ext_resource type="FontFile" uid="uid://bdktymojvre3j" path="res://Assets/Neobique.otf" id="1_bfwct"]
+[ext_resource type="FontFile" uid="uid://cmvfkok6m2qga" path="res://Assets/Hanist-Regular.otf" id="2_g3hk4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rihx2"]
+bg_color = Color(0.207843, 0.207843, 0.207843, 0.886275)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2b4ev"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p0w7f"]
+
+[node name="pause_menu" type="CanvasLayer"]
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_rihx2")
+
+[node name="menu" type="Panel" parent="Panel"]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -525.0
+offset_top = 103.0
+offset_right = -204.0
+offset_bottom = 291.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/menu"]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -147.0
+offset_top = -70.0
+offset_right = 147.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="unpause_button" type="Button" parent="Panel/menu/VBoxContainer"]
+process_mode = 3
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_g3hk4")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxEmpty_2b4ev")
+text = "UNPAUSE"
+
+[node name="main_menu_button" type="Button" parent="Panel/menu/VBoxContainer"]
+process_mode = 3
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_g3hk4")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxEmpty_2b4ev")
+text = "MAIN MENU"
+
+[node name="exit_game_button" type="Button" parent="Panel/menu/VBoxContainer"]
+process_mode = 3
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_g3hk4")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxEmpty_p0w7f")
+text = "EXIT GAME"
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -335.0
+offset_top = 59.0
+offset_right = 349.0
+offset_bottom = 119.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.529412, 0.682353, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_bfwct")
+theme_override_font_sizes/font_size = 60
+text = "pause menu"

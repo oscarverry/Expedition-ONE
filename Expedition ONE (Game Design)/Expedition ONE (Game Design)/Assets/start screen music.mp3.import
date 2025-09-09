@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dw2frwsnsestv"
+path="res://.godot/imported/start screen music.mp3-b93e4dcb62bbd4bd2166a4e4dda0fbf7.mp3str"
+
+[deps]
+
+source_file="res://Assets/start screen music.mp3"
+dest_files=["res://.godot/imported/start screen music.mp3-b93e4dcb62bbd4bd2166a4e4dda0fbf7.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,154 @@
+[gd_scene load_steps=12 format=3 uid="uid://chjjxre027s1j"]
+
+[ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_c024t"]
+[ext_resource type="Texture2D" uid="uid://daeigybl2ltun" path="res://Assets/menu background.png" id="2_pa8mw"]
+[ext_resource type="FontFile" uid="uid://bdktymojvre3j" path="res://Assets/Neobique.otf" id="3_38oex"]
+[ext_resource type="Texture2D" uid="uid://jcy4t74gvlf8" path="res://Assets/submarine idle.png" id="4_sdhyo"]
+[ext_resource type="FontFile" uid="uid://cmvfkok6m2qga" path="res://Assets/Hanist-Regular.otf" id="5_sx60w"]
+[ext_resource type="AudioStream" uid="uid://dw2frwsnsestv" path="res://Assets/start screen music.mp3" id="6_imc2w"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g0sq6"]
+texture = ExtResource("2_pa8mw")
+modulate_color = Color(0.113725, 0.458824, 0.501961, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ooubi"]
+texture = ExtResource("4_sdhyo")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p7o3a"]
+bg_color = Color(0.380392, 0.180392, 1, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+shadow_color = Color(0.184314, 0.415686, 1, 0.6)
+shadow_size = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_abr8l"]
+bg_color = Color(0.411765, 0.298039, 1, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+shadow_color = Color(0.380392, 0.572549, 1, 0.6)
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jyrnc"]
+bg_color = Color(0.411765, 0.298039, 1, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+shadow_color = Color(0.380392, 0.572549, 1, 0.6)
+shadow_size = 5
+
+[node name="main_menu" type="CanvasLayer"]
+process_mode = 3
+visible = false
+script = ExtResource("1_c024t")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_g0sq6")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -507.0
+offset_top = 60.0
+offset_right = 506.0
+offset_bottom = 263.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.556863, 0.760784, 0.858824, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0.0313726, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 8
+theme_override_constants/shadow_offset_y = 8
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("3_38oex")
+theme_override_font_sizes/font_size = 100
+text = "Expedition 
+-one-"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel2" type="Panel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -170.0
+offset_top = -122.0
+offset_right = 180.0
+offset_bottom = 212.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ooubi")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -208.5
+offset_top = 160.0
+offset_right = 210.5
+offset_bottom = 292.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+
+[node name="start_game_button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.654902, 0.772549, 0.956863, 1)
+theme_override_colors/font_pressed_color = Color(0.792157, 0.862745, 0.972549, 1)
+theme_override_colors/font_hover_color = Color(0.792157, 0.862745, 0.972549, 1)
+theme_override_fonts/font = ExtResource("5_sx60w")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_p7o3a")
+theme_override_styles/hover = SubResource("StyleBoxFlat_abr8l")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jyrnc")
+text = "START GAME
+"
+
+[node name="controls_button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.654902, 0.772549, 0.956863, 1)
+theme_override_colors/font_pressed_color = Color(0.792157, 0.862745, 0.972549, 1)
+theme_override_colors/font_hover_color = Color(0.792157, 0.862745, 0.972549, 1)
+theme_override_fonts/font = ExtResource("5_sx60w")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_p7o3a")
+theme_override_styles/hover = SubResource("StyleBoxFlat_abr8l")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jyrnc")
+text = "CONTROLS"
+
+[node name="exit_game_button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.654902, 0.772549, 0.956863, 1)
+theme_override_colors/font_pressed_color = Color(0.792157, 0.862745, 0.972549, 1)
+theme_override_colors/font_hover_color = Color(0.792157, 0.862745, 0.972549, 1)
+theme_override_fonts/font = ExtResource("5_sx60w")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_p7o3a")
+theme_override_styles/hover = SubResource("StyleBoxFlat_abr8l")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jyrnc")
+text = "EXIT GAME"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_imc2w")
+volume_db = 10.0
+autoplay = true
+
+[connection signal="pressed" from="VBoxContainer/start_game_button" to="." method="_on_start_game_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/controls_button" to="." method="_on_controls_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/exit_game_button" to="." method="_on_exit_game_button_pressed"]
